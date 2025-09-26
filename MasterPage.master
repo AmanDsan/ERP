@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Master Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server" />
+    <style>
+        /* Reset some default spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Segoe UI, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Container that centers content and restricts width */
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 20px 30px;
+            min-height: 80vh;
+        }
+
+        /* Navigation styling */
+        #nav {
+            background-color: dodgerblue;
+            padding: 10px 0;
+        }
+
+        #nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #nav ul li {
+            display: inline-block;
+        }
+
+        #nav ul li a {
+            color: #F1FAEE;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #nav ul li a:hover {
+            background-color: #F3FFBD;
+            color: #FF1654;
+        }
+
+        /* Content area placeholder */
+        .content-area {
+            margin-top: 30px;
+        }
+
+        .grid-container {
+    overflow: hidden;  /* Prevents overflow */
+    width: 100%;  /* Ensures the GridView doesn't exceed container width */
+}
+
+.gridview {
+    width: 100%;
+    table-layout: fixed; /* Prevents columns from stretching unevenly */
+    border-collapse: collapse;
+}
+
+.gridview th, .gridview td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+    white-space: normal;         /* Allows wrapping */
+    word-wrap: break-word;       /* Ensures long words wrap */
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+
+        /* Footer styling */
+        footer {
+            background-color: dodgerblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 0 0 8px 8px;
+            margin-top: 30px;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            #nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="nav">
+        <ul>
+            <li><a href="Home.aspx">Home</a></li>
+            <li><a href="#">Mail</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Task</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="content-area">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />
+            </div>
+
+            <!-- Footer inside form so it renders with master page -->
+            <footer>
+                &copy; 2025-26 AmD. All rights reserved.
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
